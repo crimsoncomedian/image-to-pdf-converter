@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image to PDF Converter</h1>
+            <p>Convert your JPG and PNG images to a single PDF document</p>
+        </header>
+
+        <div class="card">
+            <div class="upload-area">
+                <label for="file-upload" class="drop-zone" id="drop-area">
+                    <div class="drop-zone-content">
+                        <img src="assets/icons/upload.svg" alt="Upload" class="upload-icon">
+                        <p><strong>Click to upload</strong> or drag and drop</p>
+                        <p class="small">JPG & PNG files only (max 100 images)</p>
+                    </div>
+                    <input id="file-upload" type="file" accept=".jpg,.jpeg,.png" multiple>
+                </label>
+            </div>
+
+            <div id="file-list-container" class="hidden">
+                <h3>Selected Images</h3>
+                <div class="file-list-wrapper">
+                    <ul id="file-list"></ul>
+                </div>
+                <div class="file-list-actions">
+                    <button id="clear-btn" class="text-button">Clear All</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pdf-name">PDF File Name</label>
+                <input id="pdf-name" type="text" placeholder="Enter file name (without .pdf)" value="converted_document">
+            </div>
+
+            <div class="button-container">
+                <button id="convert-btn" class="primary-button" disabled>
+                    <span class="button-icon">⬇️</span>
+                    Convert to PDF
+                </button>
+            </div>
+        </div>
+
+        <div id="progress-container" class="card hidden">
+            <div class="progress-header">
+                <span>Processing images...</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div id="result-container" class="card hidden">
+            <div class="result-content">
+                <div class="success-icon">✓</div>
+                <h3>PDF Created Successfully!</h3>
+                <p>Your images have been converted to a PDF document.</p>
+                <div class="button-group">
+                    <button id="download-btn" class="primary-button">
+                        <span class="button-icon">⬇️</span>
+                        Download PDF
+                    </button>
+                    <button id="reset-btn" class="secondary-button">Convert Another</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card info-card">
+            <h2>How to Use</h2>
+            <ol>
+                <li>Click the upload area or drag and drop your JPG/PNG images</li>
+                <li>Arrange the images in the desired order (first in list = first in PDF)</li>
+                <li>Enter a name for your PDF file</li>
+                <li>Click "Convert to PDF" to generate your document</li>
+                <li>Download your PDF when processing is complete</li>
+            </ol>
+            <div class="note">
+                <p><strong>Note:</strong> All processing happens in your browser. Your images are not uploaded to any server.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 Image to PDF Converter | Privacy-Focused Browser-Based Tool</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
